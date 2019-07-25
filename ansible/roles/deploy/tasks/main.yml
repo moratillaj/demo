@@ -1,0 +1,14 @@
+- name: "copy the jar artifact"
+  copy: src=../target/demo-0.0.1-SNAPSHOT.jar dest=/home/spring-boot-ansible/demo-0.0.1-SNAPSHOT.jar force=True
+
+- name: "set the jar artifact file permissions"
+  file: path=/home/spring-boot-ansible/demo-0.0.1-SNAPSHOT.jar owner=spring-boot-ansible group=spring-boot-ansible mode=0755
+
+- name: "copy start.sh"
+  copy: src=start.sh dest=/home/spring-boot-ansible/start.sh force=True
+
+- name: "set the jar start.sh file permissions"
+  file: path=/home/spring-boot-ansible/start.sh owner=spring-boot-ansible group=spring-boot-ansible mode=0755
+
+- name: "create configuration"
+  template: src=application.properties.j2 dest=/home/spring-boot-ansible/application.properties owner=spring-boot-ansible group=spring-boot-ansible

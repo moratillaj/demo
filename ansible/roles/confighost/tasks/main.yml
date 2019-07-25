@@ -1,0 +1,8 @@
+- name: "create spring-boot-ansible group"
+  group:
+    name: spring-boot-ansible
+- name: "create spring-boot-ansible user"
+  user:
+    name: spring-boot-ansible
+    group: spring-boot-ansible
+    comment: "user for application spring-boot-ansible"

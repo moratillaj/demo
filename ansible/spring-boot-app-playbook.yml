@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - confighost
+#    - geerlingguy.java
+      when: "ansible_os_family == 'Ubuntu'"
+        java_packages:
+          - openjdk-8-jdk
+    - deploy
+
+  #   - name: "create systemd unit configuration"
+  #     template:
+  #       src: systemd.conf.j2
+  #       dest: /etc/systemd/system/spring-boot-ansible.service
+
+  #   - name: "enable the service"
+  #     service: name=spring-boot-ansible enabled=yes
+
+  #   - name: "start the service"
+  #     service: name=spring-boot-ansible state=restarted
