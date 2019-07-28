@@ -14,10 +14,10 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh 'cp target/demo-0.0.1-SNAPSHOT.jar $HOME/mystuff/sw-projects/deploy'
-            }
-        }
+//         stage('Deploy') {
+//             steps {
+//                 sh 'cp target/demo-0.0.1-SNAPSHOT.jar $HOME/mystuff/sw-projects/deploy'
+//             }
+//         }
     }
 }

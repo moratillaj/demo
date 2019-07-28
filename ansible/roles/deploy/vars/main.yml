@@ -1,1 +1,1 @@
-greeter: charly
+greeting: charly greeting from environment {{ env }}

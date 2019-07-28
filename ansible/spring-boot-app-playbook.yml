@@ -2,13 +2,11 @@
 - hosts: all
   become: yes
   gather_facts: yes
+  vars:
+    env: dev
   roles:
-    - confighost
-#    - geerlingguy.java
-      when: "ansible_os_family == 'Ubuntu'"
-        java_packages:
-          - openjdk-8-jdk
     - deploy
+    - build
 
   #   - name: "create systemd unit configuration"
   #     template:
