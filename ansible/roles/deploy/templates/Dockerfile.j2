@@ -1,0 +1,6 @@
+FROM adoptopenjdk/openjdk11:x86_64-alpine-jdk-11.0.4_11
+WORKDIR {{ app_path }}
+COPY {{ app_jar_name }} {{ app_path }}/{{ app_jar_name }}
+COPY application-{{ env }}.properties {{ app_path }}/application-{{ env }}.properties
+COPY start.sh {{ app_path }}/start.sh
+ENTRYPOINT ["{{ app_path }}/start.sh"]

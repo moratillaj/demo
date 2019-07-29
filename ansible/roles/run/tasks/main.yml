@@ -1,0 +1,10 @@
+#- name: Run container
+#  docker_container:
+#    name: "{{ docker_container_name }}"
+#    image: "{{ docker_image_name }}"
+#    ports:
+#      - "9090:9000"
+
+- name: "Run container"
+  command: "docker run -d -p 9090:9090 --name {{ docker_container_name }} {{ docker_image_name }}"
+  become: yes

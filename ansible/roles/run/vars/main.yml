@@ -1,0 +1,2 @@
+docker_image_name: demo-image
+docker_container_name: demo-container

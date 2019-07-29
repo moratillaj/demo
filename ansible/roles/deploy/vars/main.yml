@@ -1,1 +1,3 @@
+app_path: /opt/app
+app_jar_name: app.jar
 greeting: charly greeting from environment {{ env }}

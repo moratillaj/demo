@@ -2,19 +2,7 @@
 - hosts: all
   become: yes
   gather_facts: yes
-  vars:
-    env: dev
   roles:
     - deploy
     - build
-
-  #   - name: "create systemd unit configuration"
-  #     template:
-  #       src: systemd.conf.j2
-  #       dest: /etc/systemd/system/spring-boot-ansible.service
-
-  #   - name: "enable the service"
-  #     service: name=spring-boot-ansible enabled=yes
-
-  #   - name: "start the service"
-  #     service: name=spring-boot-ansible state=restarted
+    - run

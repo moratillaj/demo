@@ -1,0 +1,11 @@
+docker build -t demo-img .
+
+docker run -d -p 9090:9090 --name demo-container demo-img
+
+docker logs demo-container
+
+curl http://localhost:9090/actuator/health
+
+curl http://localhost:9090/greet?name=john
+
+vagrant destroy; rm -rf .vagrant; vagrant up; vagrant ssh

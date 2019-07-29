@@ -1,21 +1,26 @@
+- name: Clean app directory
+  file:
+    state: absent
+    path: "{{ app_path }}/"
+
 - name: Create app directory if it does not exist
   file:
-    path: /opt/app
+    path: "{{ app_path }}"
     state: directory
     mode: '0755'
 
 - name: "copy the jar artifact"
   copy:
     src: ../target/demo-0.0.1-SNAPSHOT.jar
-    dest: /opt/app/app.jar
+    dest: "{{ app_path}}/{{ app_jar_name }}"
     owner: vagrant
     group: vagrant
     mode: '0755'
 
-- name: "copy start.sh"
+- name: "copy start.sh.j2"
   template:
-    src: start.sh
-    dest: /opt/app/start.sh
+    src: start.sh.j2
+    dest: "{{ app_path }}/start.sh"
     owner: vagrant
     group: vagrant
     mode: '0755'
@@ -23,15 +28,15 @@
 - name: "create configuration"
   template:
     src: application.properties.j2
-    dest: /opt/app/application-{{ env }}.properties
+    dest: "{{ app_path }}/application-{{ env }}.properties"
     owner: vagrant
     group: vagrant
     mode: '0655'
 
-- name: "copy Dockerfile"
-  copy:
-    src: Dockerfile
-    dest: /opt/app/Dockerfile
+- name: "copy Dockerfile.j2"
+  template:
+    src: Dockerfile.j2
+    dest: "{{ app_path }}/Dockerfile"
     owner: vagrant
     group: vagrant
     mode: '0755'
