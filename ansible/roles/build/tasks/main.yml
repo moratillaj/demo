@@ -1,0 +1,12 @@
+#- name: "Build image"
+#  docker_image:
+#    name: "{{ docker_image_name }}"
+#    build:
+#      path: "{{ app_path }}"
+#    source: build
+
+- name: "Build image"
+  command: "docker build -t {{ docker_image_name }} ."
+  become: yes
+  args:
+    chdir: "{{ app_path }}"

@@ -1,0 +1,2 @@
+app_path: /opt/app
+docker_image_name: demo-image
